@@ -1,0 +1,36 @@
+.deal-banner {
+  margin-top: 3rem;
+  //   background-image: url("https://images.unsplash.com/photo-1542831371-29b0f74f9713");
+  background-image: url("../../assets/SpecialOffer.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.deal-text {
+  max-width: 800px;
+}
+
+.deal-text .small-head {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #f8f8d8;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.deal-text .main-head {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+}

@@ -1,0 +1,47 @@
+.content {
+  padding: 40px 20px;
+  text-align: center;
+
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 30px;
+  }
+
+  .features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .feature-box {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-box:hover {
+    transform: scale(1.05);
+  }
+
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #00305b;
+  }
+
+  .feature-box h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .feature-box p {
+    font-size: 14px;
+    color: #666;
+  }
+}

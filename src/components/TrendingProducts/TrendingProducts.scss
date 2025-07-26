@@ -1,0 +1,65 @@
+.TrendingProducts-store-wrapper {
+  padding: 2rem;
+  background-color: #fef9f5;
+  border-radius: 12px;
+  //   max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.store-title {
+  font-size: 1.8rem;
+  color: #00305b;
+  margin-bottom: 1rem;
+}
+
+.store-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #00305b;
+  cursor: pointer;
+}
+
+.store-boxes {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.store-card {
+  flex: 1;
+  min-width: 220px;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.store-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.store-card .products {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.store-card .discount {
+  font-size: 1rem;
+  color: #00305b;
+  font-weight: bold;
+  margin-top: 0.3rem;
+}
