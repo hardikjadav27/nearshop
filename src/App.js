@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OfferBazaarMain from "./components/OfferBazaarMain/OfferBazaarMain.tsx";
 import ContentPage from "./components/ContentPage/ContentPage.tsx";
 import PopularStores from "./components/TrendingShops/PopularStores.tsx";
@@ -6,10 +7,13 @@ import TrendingProducts from "./components/TrendingProducts/TrendingProducts.tsx
 import PerfectDealsTemplate from "./components/PerfectDealsTemplate/PerfectDealsTemplate.tsx";
 import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents.tsx";
 import TopCategory from "./components/TopCategory/TopCategory.tsx";
+import AllEvents from "./components/AllEvents/AllEvents.tsx";
+import Header from "./components/Header/Header.tsx";
+import CategoryPage from "./components/CategoryPage/CategoryPage.tsx";
 
-function App() {
+function HomePage() {
   return (
-    <div className="App">
+    <>
       <OfferBazaarMain />
       <TopCategory />
       {/* <PopularStores /> */}
@@ -17,7 +21,22 @@ function App() {
       <TrendingProducts />
       <ContentPage />
       {/* <PerfectDealsTemplate /> */}
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Header />
+      <div className="main-wrapper">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/all-events" element={<AllEvents />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

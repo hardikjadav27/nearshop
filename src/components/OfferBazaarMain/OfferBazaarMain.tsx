@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./OfferBazaarMain.scss";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const images = [
   "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1400&q=80",
@@ -15,56 +14,26 @@ const OfferBazaarMain = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
-
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div>
-      <header className="fixed-header">
-        <div className="logo">OfferBazaar</div>
-        {/* <nav className="nav-menu">
-          <a className="nav-link" href="#">
-            Home
-          </a>
-          <a className="nav-link" href="#">
-            About
-          </a>
-          <a className="nav-link" href="#">
-            Contact
-          </a>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <FaFacebookF
-              className="text-blue-600 hover:text-blue-800"
-              size={24}
-            />
-            <FaInstagram
-              className="text-blue-600 hover:text-blue-800"
-              size={24}
-            />
-            <FaTwitter
-              className="text-blue-600 hover:text-blue-800"
-              size={24}
-            />
-          </div>
-        </nav> */}
-      </header>
-      <section
-        className="hero-section"
-        style={{
-          backgroundImage: `url(${images[currentIndex]})`,
-        }}
-      >
-        <div className="hero-overlay"></div>
-        <div className="hero-text">Explore the Best Deals in Your City</div>
-        {/* <div className="hero-text-inside">
-          Find the best offers, exclusive discounts, and trending stores near
-          you
-        </div> */}
-      </section>
-    </div>
+    <section
+      className="hero-section"
+      aria-label="Promotional Hero Section"
+      style={{ backgroundImage: `url(${images[currentIndex]})` }}
+    >
+      <div className="hero-overlay" />
+      <div className="hero-content">
+        <h1 className="hero-title">Explore the Best Deals in Your City</h1>
+        <p className="hero-subtitle">
+          Find top offers, discounts & local favorites — all in one place
+        </p>
+        {/* <button className="hero-btn">Browse Offers</button> */}
+      </div>
+    </section>
   );
 };
 

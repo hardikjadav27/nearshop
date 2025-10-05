@@ -1,6 +1,7 @@
 import React from "react";
 // import { useNavigate } from "react-router-dom";
 import "./TopCategory.scss";
+import { useNavigate } from "react-router-dom";
 
 type Category = {
   name: string;
@@ -35,7 +36,7 @@ const categories: Category[] = [
 ];
 
 export default function TopCategory() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="top-category">
@@ -45,7 +46,14 @@ export default function TopCategory() {
           <div
             key={index}
             className="category-card"
-            // onClick={() => navigate(`/category/${cat.name.toLowerCase()}`)}
+            onClick={() =>
+              navigate(
+                `/category/${cat.name
+                  .toLowerCase()
+                  .replace(/ & /g, "-")
+                  .replace(/\s+/g, "-")}`
+              )
+            }
           >
             <img src={cat.image} alt={cat.name} className="category-img" />
             <p className="category-name">{cat.name}</p>

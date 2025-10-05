@@ -1,63 +1,96 @@
 .events-container {
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
   background: #f9f9f9;
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.5rem;
+  }
 }
 
 .events-title {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #333;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #00305b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 
   .events-cal {
-    height: 40px;
-    width: 40px;
-    margin-right: 10px;
-    vertical-align: middle;
+    height: 38px;
+    width: 38px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+
+    .events-cal {
+      height: 30px;
+      width: 30px;
+    }
   }
 }
 
 .events-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .event-card {
-  width: 320px;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
-}
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
-.event-card:hover {
-  transform: translateY(-5px);
-}
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
 
-.event-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
 }
 
 .event-content {
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #00305b;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+  }
 }
 
-/* Countdown styling */
+/* Countdown Styling */
 .timer-row {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .time-box-group {
@@ -67,13 +100,13 @@
 }
 
 .time-box {
-  width: 25px;
-  height: 25px;
-  padding: 10px;
+  min-width: 40px;
+  height: 40px;
+  padding: 8px;
   background: #fff7f0;
   border: 2px solid #00305b;
-  border-radius: 10px;
-  font-size: 1.3rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #00305b;
   display: flex;
@@ -82,8 +115,8 @@
 }
 
 .time-label {
-  margin-top: 6px;
-  font-size: 0.8rem;
+  margin-top: 4px;
+  font-size: 0.75rem;
   color: #666;
 }
 
@@ -96,54 +129,33 @@
   font-weight: 600;
 }
 
-/* Button */
-.learn-more {
-  background: #00305b;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  margin-top: 0.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.25s ease;
-  width: 100%;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.learn-more:hover {
-  background: #152635;
-}
-
 /* View All Button */
-
 .view-all-box {
-  margin-top: 2rem;
+  margin: 2rem auto 0;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-weight: 600;
   color: #00305b;
   border: 2px solid #00305b;
-  padding: 0.5rem 1.2rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
   cursor: pointer;
   justify-content: center;
-}
 
-.view-all-box:hover {
-  background-color: #00305b;
-  color: white;
-  text-decoration: none;
-}
+  &:hover {
+    background-color: #00305b;
+    color: white;
 
-.view-all-icon {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
-}
+    .view-all-icon {
+      transform: translateX(6px);
+    }
+  }
 
-.view-all-box:hover .view-all-icon {
-  transform: translateX(5px);
+  .view-all-icon {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
 }

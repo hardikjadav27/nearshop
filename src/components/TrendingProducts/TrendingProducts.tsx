@@ -33,8 +33,9 @@ const storeData = [
 const TrendingProducts = () => {
   const [startIndex, setStartIndex] = useState(0);
 
+  const maxIndex = storeData.length - 3;
+
   const handleScroll = (dir: "left" | "right") => {
-    const maxIndex = storeData.length - 3;
     setStartIndex((prev) => {
       if (dir === "left") return prev === 0 ? maxIndex : prev - 1;
       else return prev === maxIndex ? 0 : prev + 1;
@@ -44,19 +45,24 @@ const TrendingProducts = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleScroll("right");
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="TrendingProducts-store-wrapper">
       <h2 className="store-title">🔥 Popular Stores</h2>
-      <div className="store-carousel">
-        <button className="arrow left" onClick={() => handleScroll("left")}>
+      <div className="carousel-wrapper">
+        {/* Left arrow at far left */}
+        <button
+          className="carousel-arrow left"
+          onClick={() => handleScroll("left")}
+        >
           <FaChevronLeft />
         </button>
 
-        <div className="store-boxes">
+        {/* Centered 3 boxes */}
+        <div className="carousel-track">
           {storeData.slice(startIndex, startIndex + 3).map((store, i) => (
             <div className="store-card" key={i}>
               <h3>{store.store}</h3>
@@ -66,7 +72,11 @@ const TrendingProducts = () => {
           ))}
         </div>
 
-        <button className="arrow right" onClick={() => handleScroll("right")}>
+        {/* Right arrow at far right */}
+        <button
+          className="carousel-arrow right"
+          onClick={() => handleScroll("right")}
+        >
           <FaChevronRight />
         </button>
       </div>

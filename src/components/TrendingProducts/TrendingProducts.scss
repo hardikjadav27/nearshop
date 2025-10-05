@@ -2,64 +2,111 @@
   padding: 2rem;
   background-color: #fef9f5;
   border-radius: 12px;
-  //   max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
   text-align: center;
 }
 
 .store-title {
-  font-size: 1.8rem;
-  color: #00305b;
-  margin-bottom: 1rem;
-}
-
-.store-carousel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.arrow {
-  background: none;
-  border: none;
   font-size: 2rem;
   color: #00305b;
-  cursor: pointer;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
-.store-boxes {
+/* Main layout */
+.carousel-wrapper {
   display: flex;
-  gap: 1rem;
-  overflow: hidden;
-  width: 100%;
-  max-width: 1100px;
+  align-items: center;
+  justify-content: space-between; // push arrows to corners
+  position: relative;
+  gap: 0;
 }
 
-.store-card {
+/* Arrows on corners */
+.carousel-arrow {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #00305b;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #00305b;
+    color: #fff;
+  }
+}
+
+/* Box container */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  justify-content: center;
   flex: 1;
-  min-width: 220px;
+}
+
+/* Individual card */
+.store-card {
+  flex: 0 0 280px;
   background: white;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .products {
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .discount {
+    font-size: 1rem;
+    color: #e63946;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
 }
 
-.store-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #222;
-}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-.store-card .products {
-  font-size: 0.95rem;
-  color: #666;
-}
+  .carousel-track {
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+  }
 
-.store-card .discount {
-  font-size: 1rem;
-  color: #00305b;
-  font-weight: bold;
-  margin-top: 0.3rem;
+  .store-card {
+    width: 90%;
+  }
+
+  .carousel-arrow {
+    display: none;
+  }
 }

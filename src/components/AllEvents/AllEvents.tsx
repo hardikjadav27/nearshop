@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./UpcomingEvents.scss";
-import { useNavigate } from "react-router-dom";
+import "../UpcomingEvents/UpcomingEvents.scss";
 
 type EventType = {
   title: string;
@@ -9,31 +8,14 @@ type EventType = {
   endDate: string;
 };
 
-const events: EventType[] = [
-  {
-    title: "Vijay Electronics",
-    description:
-      "Explore the latest tech & gadgets in one place. Don’t miss out!",
-    image:
-      "https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWxlY3Ryb25pY3N8ZW58MHx8MHx8fDA%3D",
-    endDate: "2025-12-31T23:59:59",
-  },
-  {
-    title: "D-Mart",
-    description: "Biggest deals on groceries & more. Limited time only!",
-    image:
-      "https://images.unsplash.com/photo-1693505628207-dbeb3d882c92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZC1tYXJ0fGVufDB8fDB8fHww",
-    endDate: "2025-11-15T20:00:00",
-  },
-  {
-    title: "Rani Beauty Salon",
-    description: "Top beauty brands with amazing offers and freebies.",
-    image:
-      "https://images.unsplash.com/photo-1607774000480-de3f239fdd4c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QmVhdXR5JTIwU2Fsb258ZW58MHx8MHx8fDA%3D",
-    endDate: "2025-09-10T10:00:00",
-  },
-];
+const allEvents: EventType[] = Array.from({ length: 20 }, (_, i) => ({
+  title: `Event ${i + 1}`,
+  description: "Special discounts and exciting offers just for you!",
+  image: `https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RvcmV8ZW58MHx8MHx8fDA%3D`,
+  endDate: "2025-12-31T23:59:59",
+}));
 
+// countdown logic
 type Remaining = {
   d: number;
   h: number;
@@ -57,8 +39,8 @@ function getRemaining(endISO: string): Remaining {
   return { d, h, m, s, expired: false };
 }
 
-function CountdownBoxes({ endDate }: { endDate: string }) {
-  const [left, setLeft] = useState(getRemaining(endDate) as Remaining);
+const CountdownBoxes = ({ endDate }: { endDate: string }) => {
+  const [left, setLeft] = useState<Remaining>(getRemaining(endDate));
 
   useEffect(() => {
     const id = setInterval(() => setLeft(getRemaining(endDate)), 1000);
@@ -89,11 +71,10 @@ function CountdownBoxes({ endDate }: { endDate: string }) {
       </div>
     </div>
   );
-}
+};
 
-function UpcomingEvents() {
-  const navigate = useNavigate();
-
+// main component
+function AllEvents() {
   return (
     <div className="events-container">
       <h2 className="events-title">
@@ -102,10 +83,10 @@ function UpcomingEvents() {
           src="https://cdn-icons-png.flaticon.com/128/10691/10691802.png"
           alt="Calendar Icon"
         />
-        Upcoming Events
+        All Upcoming Events
       </h2>
       <div className="events-grid">
-        {events.map((event, index) => (
+        {allEvents.map((event, index) => (
           <div className="event-card" key={index}>
             <img src={event.image} alt={event.title} />
             <div className="event-content">
@@ -113,29 +94,14 @@ function UpcomingEvents() {
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
               </div>
-
               <CountdownBoxes endDate={event.endDate} />
-
               {/* <button className="learn-more">Learn More</button> */}
             </div>
           </div>
         ))}
       </div>
-      {/* View All Button */}
-      <div
-        className="view-all-box"
-        onClick={() => navigate("/all-events")}
-        style={{ cursor: "pointer" }}
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/7554/7554470.png"
-          alt="View All Icon"
-          className="view-all-icon"
-        />
-        View All
-      </div>
     </div>
   );
 }
 
-export default UpcomingEvents;
+export default AllEvents;
