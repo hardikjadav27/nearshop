@@ -1,0 +1,89 @@
+.limited-offer {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full image height */
+  background-image: url("https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1400&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps image fixed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+
+  /* Dark transparent overlay for text visibility */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  /* Text container */
+  .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+    background-color: transparent;
+
+    .tagline {
+      font-size: 1.3rem;
+      color: #ffd166;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 2.2rem;
+      }
+    }
+
+    .desc {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .code {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+
+      span {
+        background: #ffd166;
+        color: #222;
+        padding: 0.3rem 0.6rem;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+    }
+
+    .btn {
+      background: #00305b;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #0056a3;
+        transform: translateY(-3px);
+      }
+    }
+  }
+}

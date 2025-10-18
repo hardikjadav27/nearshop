@@ -1,112 +1,74 @@
-.TrendingProducts-store-wrapper {
-  padding: 2rem;
-  background-color: #fef9f5;
-  border-radius: 12px;
-  max-width: 1200px;
-  margin: auto;
+.TrendingProducts-wrapper {
+  padding: 3rem 1rem;
+  background: #fef9f5;
   text-align: center;
 }
 
 .store-title {
   font-size: 2rem;
   color: #00305b;
-  margin-bottom: 1.5rem;
   font-weight: 700;
+  margin-bottom: 2rem;
 }
 
-/* Main layout */
-.carousel-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; // push arrows to corners
-  position: relative;
-  gap: 0;
-}
-
-/* Arrows on corners */
-.carousel-arrow {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  color: #00305b;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: #00305b;
-    color: #fff;
-  }
-}
-
-/* Box container */
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  max-width: 900px;
+/* Grid layout */
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
-  overflow: hidden;
-  justify-content: center;
-  flex: 1;
 }
 
-/* Individual card */
+/* Store Card */
 .store-card {
-  flex: 0 0 280px;
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
 
   h3 {
-    font-size: 1.2rem;
-    color: #222;
-    margin-bottom: 0.5rem;
+    margin: 0;
+    padding: 0.8rem;
+    font-size: 1.1rem;
     font-weight: 600;
-  }
-
-  .products {
-    font-size: 0.95rem;
-    color: #666;
-  }
-
-  .discount {
-    font-size: 1rem;
-    color: #e63946;
-    font-weight: bold;
-    margin-top: 0.5rem;
+    color: #222;
   }
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .carousel-wrapper {
-    flex-direction: column;
-    gap: 1rem;
-  }
+/* Image container */
+.store-image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
 
-  .carousel-track {
-    flex-direction: column;
-    max-width: 100%;
-    align-items: center;
-  }
+/* Discount badge */
+.discount-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 48, 91, 0.9);
+  color: white;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
 
-  .store-card {
-    width: 90%;
+/* Responsive */
+@media (max-width: 600px) {
+  .store-title {
+    font-size: 1.5rem;
   }
-
-  .carousel-arrow {
-    display: none;
+  .store-image {
+    height: 140px;
   }
 }

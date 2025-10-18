@@ -3,12 +3,18 @@
   width: 100%;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* 👈 Keeps image fixed when scrolling */
   position: relative;
   transition: background-image 1s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+@supports (-webkit-touch-callout: none) {
+  .hero-section {
+    background-attachment: scroll; /* fallback for mobile */
+  }
 }
 
 .hero-overlay {

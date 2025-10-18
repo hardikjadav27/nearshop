@@ -10,6 +10,7 @@ import TopCategory from "./components/TopCategory/TopCategory.tsx";
 import AllEvents from "./components/AllEvents/AllEvents.tsx";
 import Header from "./components/Header/Header.tsx";
 import CategoryPage from "./components/CategoryPage/CategoryPage.tsx";
+import LimitedOffer from "./components/LimitedOffer/LimitedOffer.tsx";
 
 function HomePage() {
   return (
@@ -19,6 +20,7 @@ function HomePage() {
       {/* <PopularStores /> */}
       <UpcomingEvents />
       <TrendingProducts />
+      <LimitedOffer />
       <ContentPage />
       {/* <PerfectDealsTemplate /> */}
     </>
